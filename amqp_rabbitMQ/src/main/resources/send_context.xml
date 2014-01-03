@@ -38,10 +38,6 @@
 
     <rabbit:admin connection-factory="connectionFactory"/>
 
-    <rabbit:queue name="q_passport_login"/>
-
-    <rabbit:queue name="q_passport_register"/>
-
     <bean id="jacksonMapper" class="org.springframework.amqp.support.converter.JsonMessageConverter"/>
 
 </beans>

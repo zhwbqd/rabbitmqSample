@@ -13,30 +13,6 @@
                                password="guest"
                                channel-cache-size="5"/>
 
-    <rabbit:template id="loginSuccessTemplate"
-                     connection-factory="connectionFactory"
-                     message-converter="jacksonMapper"
-                     exchange="passportExchange"
-                     routing-key="login.success"/>
-
-    <rabbit:template id="registerSuccessTemplate"
-                     connection-factory="connectionFactory"
-                     message-converter="jacksonMapper"
-                     exchange="passportExchange"
-                     routing-key="register.success"/>
-
-    <rabbit:template id="loginFailTemplate"
-                     connection-factory="connectionFactory"
-                     message-converter="jacksonMapper"
-                     exchange="passportExchange"
-                     routing-key="login.fail"/>
-
-    <rabbit:template id="registerFailTemplate"
-                     connection-factory="connectionFactory"
-                     message-converter="jacksonMapper"
-                     exchange="passportExchange"
-                     routing-key="register.fail"/>
-
     <rabbit:admin connection-factory="connectionFactory"/>
 
     <rabbit:queue name="q_passport_login"/>
@@ -50,7 +26,8 @@
         </rabbit:bindings>
     </rabbit:topic-exchange>
 
-    <rabbit:listener-container connection-factory="connectionFactory" message-converter="jacksonMapper" acknowledge="manual" transaction-size="" concurrency="5" error-handler="userErrorHandler">
+    <rabbit:listener-container connection-factory="connectionFactory" message-converter="jacksonMapper"
+                               acknowledge="manual" concurrency="5" error-handler="userErrorHandler">
         <rabbit:listener ref="listenerAdapter" queue-names="q_passport_login, q_passport_register"/>
     </rabbit:listener-container>
 
@@ -65,6 +42,5 @@
     <bean id="jacksonMapper" class="org.springframework.amqp.support.converter.JsonMessageConverter"/>
 
     <bean id="userErrorHandler" class="zhwb.study.amqp.spring.UserSysErrorHandler"/>
-
 
 </beans>
