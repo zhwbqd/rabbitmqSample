@@ -18,7 +18,9 @@ public class Sender {
         LoginMessage message = new LoginMessage();
         message.setUserId(1);
         message.setUserName("jack");
-        template.convertAndSend(message);
+        for (int i = 0; i <1000 ; i++) {
+            template.convertAndSend(message);
+        }
         ctx.destroy();
     }
 }

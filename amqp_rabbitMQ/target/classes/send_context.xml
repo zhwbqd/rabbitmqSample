@@ -42,13 +42,6 @@
 
     <rabbit:queue name="q_passport_register"/>
 
-    <rabbit:topic-exchange name="passportExchange">
-        <rabbit:bindings>
-            <rabbit:binding queue="q_passport_login" pattern="login.*"/>
-            <rabbit:binding queue="q_passport_register" pattern="register.*"/>
-        </rabbit:bindings>
-    </rabbit:topic-exchange>
-
     <bean id="jacksonMapper" class="org.springframework.amqp.support.converter.JsonMessageConverter"/>
 
 </beans>

@@ -62,7 +62,6 @@
         <property name="messageConverter" ref="jacksonMapper"/>
     </bean>
 
-
     <bean id="jacksonMapper" class="org.springframework.amqp.support.converter.JsonMessageConverter"/>
 
     <bean id="userErrorHandler" class="zhwb.study.amqp.spring.UserSysErrorHandler"/>
