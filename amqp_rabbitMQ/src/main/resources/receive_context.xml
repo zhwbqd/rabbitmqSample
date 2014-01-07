@@ -15,16 +15,16 @@
 
     <rabbit:admin connection-factory="connectionFactory"/>
 
-    <rabbit:queue name="q_passport_login"/>
+    <!--<rabbit:queue name="q_passport_login"/>
 
-    <rabbit:queue name="q_passport_register"/>
+    <rabbit:queue name="q_passport_register"/>-->
 
-    <rabbit:topic-exchange name="passportExchange">
+    <!--<rabbit:topic-exchange name="passportExchange">
         <rabbit:bindings>
             <rabbit:binding queue="q_passport_login" pattern="login.*"/>
             <rabbit:binding queue="q_passport_register" pattern="register.*"/>
         </rabbit:bindings>
-    </rabbit:topic-exchange>
+    </rabbit:topic-exchange>-->
 
     <rabbit:listener-container connection-factory="connectionFactory" message-converter="jacksonMapper"
                                acknowledge="manual" concurrency="5" error-handler="userErrorHandler">
